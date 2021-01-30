@@ -36,8 +36,9 @@ struct _Mat {
     return self;
 }
 
-- (NSData *)toData:(int)length
+- (NSData *)toData
 {
+    unsigned long length = _mat->_mat.w * _mat->_mat.h * _mat->_mat.c * _mat->_mat.elemsize;
     return [NSData dataWithBytes:_mat->_mat.data length:length];
 }
 

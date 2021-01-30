@@ -42,6 +42,7 @@ class Squeezenet {
         let rgba = resizedImage.toRgbaUInt8Array()
 
         let inputData: Data = Data(copyingBufferOf: rgba)
+        // 65540 is ncnn::Mat::PIXEL_RGBA2RGB
         let input: NcnnMat = NcnnMat.init(fromPixels: inputData, 65540, 227, 227)
         // TODO: Find a better way to pass [Float] to objective-C.
         let mean: [NSNumber] = [NSNumber(value: 104.0), NSNumber(value: 117.0), NSNumber(value: 123.0)]
@@ -49,7 +50,7 @@ class Squeezenet {
 
         // BLOB_data is 0, BLOB_prob is 82
         let output: [NSNumber: NcnnMat] = net.run([0: input], [82])
-        let outputData: Data = output[82]!.toData(1000 * 4)!
+        let outputData: Data = output[82]!.toData()!
         let outputProb: [Float] = outputData.toArray(type: Float.self)
 
         let sortedOutput = outputProb.enumerated()

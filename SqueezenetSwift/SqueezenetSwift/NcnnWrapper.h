@@ -18,7 +18,7 @@ struct _Mat;
 }
 
 - (instancetype)initFromPixels:(NSData*)data :(int)type :(int)w :(int)h;
-- (NSData*)toData:(int)length;
+- (NSData*)toData;
 - (void)substractMeanNormalize:(NSArray<NSNumber*>*)mean :(NSArray<NSNumber*>*)std;
 @end
 
@@ -35,7 +35,6 @@ struct _Net;
 
 - (NSDictionary<NSNumber *, NcnnMat *> *)run:(NSDictionary<NSNumber *, NcnnMat *> *)inputs
                                             :(NSArray<NSNumber *> *)extracts;
-
 @end
 
 #endif /* NcnnWrapper_h */
