@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3AD78DF25C50C160070E830 /* Yolov5SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD78DE25C50C160070E830 /* Yolov5SwiftApp.swift */; };
+		B3AD78E125C50C160070E830 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD78E025C50C160070E830 /* ContentView.swift */; };
+		B3AD78E325C50C170070E830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AD78E225C50C170070E830 /* Assets.xcassets */; };
+		B3AD78E625C50C170070E830 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AD78E525C50C170070E830 /* Preview Assets.xcassets */; };
+		B3AD78F125C50CCE0070E830 /* yolov5s.param in Resources */ = {isa = PBXBuildFile; fileRef = B3AD78EF25C50CCC0070E830 /* yolov5s.param */; };
+		B3AD78F225C50CCE0070E830 /* yolov5s.bin in Resources */ = {isa = PBXBuildFile; fileRef = B3AD78F025C50CCE0070E830 /* yolov5s.bin */; };
+		B3AD78FB25C50E340070E830 /* openmp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AD78F925C50E330070E830 /* openmp.framework */; };
+		B3AD78FC25C50E340070E830 /* ncnn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AD78FA25C50E340070E830 /* ncnn.framework */; };
+		B3AD790325C50EB90070E830 /* Yolov5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD790225C50EB90070E830 /* Yolov5.swift */; };
+		B3E69B0225C555AA003D5A92 /* ToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E69AFF25C555A9003D5A92 /* ToArray.swift */; };
+		B3E69B0325C555AA003D5A92 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E69B0025C555A9003D5A92 /* Data.swift */; };
+		B3E69B0425C555AA003D5A92 /* Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E69B0125C555AA003D5A92 /* Resize.swift */; };
+		B3E69B0D25C55C92003D5A92 /* NcnnWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E69B0C25C55C92003D5A92 /* NcnnWrapper.mm */; };
+		B3E69B1A25C59AC4003D5A92 /* YoloV5Focus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3E69B1825C59AC4003D5A92 /* YoloV5Focus.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B3AD78DB25C50C160070E830 /* Yolov5Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yolov5Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AD78DE25C50C160070E830 /* Yolov5SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yolov5SwiftApp.swift; sourceTree = "<group>"; };
+		B3AD78E025C50C160070E830 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B3AD78E225C50C170070E830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3AD78E525C50C170070E830 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3AD78E725C50C170070E830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3AD78EF25C50CCC0070E830 /* yolov5s.param */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yolov5s.param; sourceTree = "<group>"; };
+		B3AD78F025C50CCE0070E830 /* yolov5s.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = yolov5s.bin; sourceTree = "<group>"; };
+		B3AD78F425C50D3C0070E830 /* Yolov5Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yolov5Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3AD78F925C50E330070E830 /* openmp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openmp.framework; sourceTree = "<group>"; };
+		B3AD78FA25C50E340070E830 /* ncnn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ncnn.framework; sourceTree = "<group>"; };
+		B3AD790225C50EB90070E830 /* Yolov5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yolov5.swift; sourceTree = "<group>"; };
+		B3E69AF125C53DF4003D5A92 /* CustomLayerRegistry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomLayerRegistry.hpp; sourceTree = "<group>"; };
+		B3E69AFF25C555A9003D5A92 /* ToArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToArray.swift; path = ../../../SqueezenetSwift/SqueezenetSwift/Extensions/ToArray.swift; sourceTree = "<group>"; };
+		B3E69B0025C555A9003D5A92 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Data.swift; path = ../../../SqueezenetSwift/SqueezenetSwift/Extensions/Data.swift; sourceTree = "<group>"; };
+		B3E69B0125C555AA003D5A92 /* Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resize.swift; path = ../../../SqueezenetSwift/SqueezenetSwift/Extensions/Resize.swift; sourceTree = "<group>"; };
+		B3E69B0C25C55C92003D5A92 /* NcnnWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NcnnWrapper.mm; sourceTree = "<group>"; };
+		B3E69B1025C55CB7003D5A92 /* NcnnWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NcnnWrapper.h; sourceTree = "<group>"; };
+		B3E69B1825C59AC4003D5A92 /* YoloV5Focus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = YoloV5Focus.cpp; sourceTree = "<group>"; };
+		B3E69B1925C59AC4003D5A92 /* YoloV5Focus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = YoloV5Focus.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3AD78D825C50C160070E830 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3AD78FB25C50E340070E830 /* openmp.framework in Frameworks */,
+				B3AD78FC25C50E340070E830 /* ncnn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3AD78D225C50C150070E830 = {
+			isa = PBXGroup;
+			children = (
+				B3AD78FA25C50E340070E830 /* ncnn.framework */,
+				B3AD78F925C50E330070E830 /* openmp.framework */,
+				B3AD78DD25C50C160070E830 /* Yolov5Swift */,
+				B3AD78DC25C50C160070E830 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B3AD78DC25C50C160070E830 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3AD78DB25C50C160070E830 /* Yolov5Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3AD78DD25C50C160070E830 /* Yolov5Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B3E69AF125C53DF4003D5A92 /* CustomLayerRegistry.hpp */,
+				B3AD78F425C50D3C0070E830 /* Yolov5Swift-Bridging-Header.h */,
+				B3E69B0C25C55C92003D5A92 /* NcnnWrapper.mm */,
+				B3E69B1025C55CB7003D5A92 /* NcnnWrapper.h */,
+				B3AD78DE25C50C160070E830 /* Yolov5SwiftApp.swift */,
+				B3E69AEA25C5392C003D5A92 /* CustomLayer */,
+				B3AD790025C50E7F0070E830 /* Model */,
+				B3AD78FF25C50E750070E830 /* View */,
+				B3AD78EE25C50CA50070E830 /* Resources */,
+				B3E69AFE25C55573003D5A92 /* Extensions */,
+				B3AD78E225C50C170070E830 /* Assets.xcassets */,
+				B3AD78E725C50C170070E830 /* Info.plist */,
+				B3AD78E425C50C170070E830 /* Preview Content */,
+			);
+			path = Yolov5Swift;
+			sourceTree = "<group>";
+		};
+		B3AD78E425C50C170070E830 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B3AD78E525C50C170070E830 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B3AD78EE25C50CA50070E830 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3AD78F025C50CCE0070E830 /* yolov5s.bin */,
+				B3AD78EF25C50CCC0070E830 /* yolov5s.param */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B3AD78FF25C50E750070E830 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3AD78E025C50C160070E830 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3AD790025C50E7F0070E830 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3AD790225C50EB90070E830 /* Yolov5.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3E69AEA25C5392C003D5A92 /* CustomLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B3E69B1825C59AC4003D5A92 /* YoloV5Focus.cpp */,
+				B3E69B1925C59AC4003D5A92 /* YoloV5Focus.hpp */,
+			);
+			path = CustomLayer;
+			sourceTree = "<group>";
+		};
+		B3E69AFE25C55573003D5A92 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B3E69B0025C555A9003D5A92 /* Data.swift */,
+				B3E69B0125C555AA003D5A92 /* Resize.swift */,
+				B3E69AFF25C555A9003D5A92 /* ToArray.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3AD78DA25C50C160070E830 /* Yolov5Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3AD78EA25C50C170070E830 /* Build configuration list for PBXNativeTarget "Yolov5Swift" */;
+			buildPhases = (
+				B3AD78D725C50C160070E830 /* Sources */,
+				B3AD78D825C50C160070E830 /* Frameworks */,
+				B3AD78D925C50C160070E830 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yolov5Swift;
+			productName = Yolov5Swift;
+			productReference = B3AD78DB25C50C160070E830 /* Yolov5Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3AD78D325C50C160070E830 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					B3AD78DA25C50C160070E830 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = B3AD78D625C50C160070E830 /* Build configuration list for PBXProject "Yolov5Swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B3AD78D225C50C150070E830;
+			productRefGroup = B3AD78DC25C50C160070E830 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3AD78DA25C50C160070E830 /* Yolov5Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3AD78D925C50C160070E830 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3AD78F125C50CCE0070E830 /* yolov5s.param in Resources */,
+				B3AD78E625C50C170070E830 /* Preview Assets.xcassets in Resources */,
+				B3AD78E325C50C170070E830 /* Assets.xcassets in Resources */,
+				B3AD78F225C50CCE0070E830 /* yolov5s.bin in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3AD78D725C50C160070E830 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3E69B0D25C55C92003D5A92 /* NcnnWrapper.mm in Sources */,
+				B3E69B0325C555AA003D5A92 /* Data.swift in Sources */,
+				B3E69B0225C555AA003D5A92 /* ToArray.swift in Sources */,
+				B3AD790325C50EB90070E830 /* Yolov5.swift in Sources */,
+				B3AD78E125C50C160070E830 /* ContentView.swift in Sources */,
+				B3E69B0425C555AA003D5A92 /* Resize.swift in Sources */,
+				B3E69B1A25C59AC4003D5A92 /* YoloV5Focus.cpp in Sources */,
+				B3AD78DF25C50C160070E830 /* Yolov5SwiftApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B3AD78E825C50C170070E830 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B3AD78E925C50C170070E830 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3AD78EB25C50C170070E830 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Yolov5Swift/Preview Content\"";
+				DEVELOPMENT_TEAM = CLLJ89U35Q;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Yolov5Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.from.zero.Yolov5Swift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Yolov5Swift/Yolov5Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B3AD78EC25C50C170070E830 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Yolov5Swift/Preview Content\"";
+				DEVELOPMENT_TEAM = CLLJ89U35Q;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_ENABLE_CPP_RTTI = NO;
+				INFOPLIST_FILE = Yolov5Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swift.from.zero.Yolov5Swift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Yolov5Swift/Yolov5Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3AD78D625C50C160070E830 /* Build configuration list for PBXProject "Yolov5Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3AD78E825C50C170070E830 /* Debug */,
+				B3AD78E925C50C170070E830 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3AD78EA25C50C170070E830 /* Build configuration list for PBXNativeTarget "Yolov5Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3AD78EB25C50C170070E830 /* Debug */,
+				B3AD78EC25C50C170070E830 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3AD78D325C50C160070E830 /* Project object */;
+}
