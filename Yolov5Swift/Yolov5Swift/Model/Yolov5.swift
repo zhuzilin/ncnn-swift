@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let maxLength: CGFloat = 640
+
 struct Object {
     let x: Float
     let y: Float
@@ -45,25 +47,46 @@ class Yolov5 {
         }
     }
     
-    func predict(for image: UIImage) -> [Object] {
-        let rgba = image.toRgbaUInt8Array()
-        let inputData: Data = Data(copyingBufferOf: rgba)
+    func predict(for image: UIImage) -> ([Object], Double) {
+        
+        // Yolo requires the width and height of the image are both multiplier of 32.
+        var targetW = image.size.width
+        var targetH = image.size.height
+        if targetW < targetH {
+            targetW = CGFloat(Int(targetW / targetH * maxLength) / 32 * 32)
+            targetH = maxLength
+        } else {
+            targetH = CGFloat(Int(targetH / targetW * maxLength) / 32 * 32)
+            targetW = maxLength
+        }
+        
+        let start = Date()
 
-        // 65540 is ncnn::Mat::PIXEL_RGBA2RGB
-        let input: NcnnMat = NcnnMat.init(fromPixels: inputData, 65540, Int32(image.size.width), Int32(image.size.height))
+        let path = Bundle.main.path(forResource: "dogs", ofType: "jpg")!
+        let input: NcnnMat = NcnnMat.init(fromPathResize: path, Int32(targetW), Int32(targetH))
         
         let std: [NSNumber] = [NSNumber(value: 1 / 255.0), NSNumber(value: 1 / 255.0), NSNumber(value: 1 / 255.0)]
         input.substractMeanNormalize(nil, std)
         
+        //print(start.timeIntervalSinceNow * -1000)
+        
         let outputs = net.run(withName: ["images": input], ["output", "781", "801"])!
+        
+        //print(start.timeIntervalSinceNow * -1000)
         
         var proposals: [Object] = []
         proposals += generateProposals(stride: 8, input: input, feature: outputs["output"]!)
         proposals += generateProposals(stride: 16, input: input, feature: outputs["781"]!)
         proposals += generateProposals(stride: 32, input: input, feature: outputs["801"]!)
-
+        
+        //print(start.timeIntervalSinceNow * -1000)
+        
         proposals.sort { $0.prob > $1.prob }
-        return nmsSortedBboxes(from: proposals)
+        let result = nmsSortedBboxes(from: proposals)
+        
+        //print(start.timeIntervalSinceNow * -1000)
+        
+        return (result, start.timeIntervalSinceNow * -1000)
     }
     
     func generateProposals(stride: Int, input: NcnnMat, feature: NcnnMat) -> [Object] {
@@ -143,7 +166,7 @@ class Yolov5 {
             for b in picked {
                 let interArea = Object.interArea(a, b)
                 let unionArea = a.area + b.area - interArea
-                if interArea / unionArea > nmsThreshold && a.label == b.label {
+                if interArea / unionArea > nmsThreshold {
                     keep = false
                     break
                 }

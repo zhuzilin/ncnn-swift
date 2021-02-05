@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34D2A8625CD225F000361B0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B34D2A8525CD225F000361B0 /* opencv2.framework */; };
+		B34D2A8825CD23BA000361B0 /* dogs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B34D2A8725CD23BA000361B0 /* dogs.jpg */; };
 		B3AD78DF25C50C160070E830 /* Yolov5SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD78DE25C50C160070E830 /* Yolov5SwiftApp.swift */; };
 		B3AD78E125C50C160070E830 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD78E025C50C160070E830 /* ContentView.swift */; };
 		B3AD78E325C50C170070E830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3AD78E225C50C170070E830 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B34D2A8525CD225F000361B0 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		B34D2A8725CD23BA000361B0 /* dogs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dogs.jpg; path = Yolov5Swift/Assets.xcassets/dogs.imageset/dogs.jpg; sourceTree = SOURCE_ROOT; };
 		B3AD78DB25C50C160070E830 /* Yolov5Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yolov5Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AD78DE25C50C160070E830 /* Yolov5SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yolov5SwiftApp.swift; sourceTree = "<group>"; };
 		B3AD78E025C50C160070E830 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34D2A8625CD225F000361B0 /* opencv2.framework in Frameworks */,
 				B3AD78FB25C50E340070E830 /* openmp.framework in Frameworks */,
 				B3AD78FC25C50E340070E830 /* ncnn.framework in Frameworks */,
 			);
@@ -63,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				B3AD78FA25C50E340070E830 /* ncnn.framework */,
+				B34D2A8525CD225F000361B0 /* opencv2.framework */,
 				B3AD78F925C50E330070E830 /* openmp.framework */,
 				B3AD78DD25C50C160070E830 /* Yolov5Swift */,
 				B3AD78DC25C50C160070E830 /* Products */,
@@ -108,6 +114,7 @@
 		B3AD78EE25C50CA50070E830 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B34D2A8725CD23BA000361B0 /* dogs.jpg */,
 				B3AD78F025C50CCE0070E830 /* yolov5s.bin */,
 				B3AD78EF25C50CCC0070E830 /* yolov5s.param */,
 			);
@@ -208,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3AD78F125C50CCE0070E830 /* yolov5s.param in Resources */,
+				B34D2A8825CD23BA000361B0 /* dogs.jpg in Resources */,
 				B3AD78E625C50C170070E830 /* Preview Assets.xcassets in Resources */,
 				B3AD78E325C50C170070E830 /* Assets.xcassets in Resources */,
 				B3AD78F225C50CCE0070E830 /* yolov5s.bin in Resources */,
@@ -367,7 +375,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = Yolov5Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,7 +386,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.from.zero.Yolov5Swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Yolov5Swift/Yolov5Swift-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -410,7 +418,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.from.zero.Yolov5Swift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Yolov5Swift/Yolov5Swift-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

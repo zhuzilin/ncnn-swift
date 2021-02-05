@@ -11,26 +11,18 @@ struct ContentView: View {
     let net: Yolov5?
     let image: UIImage
     let results: [Object]
-
+    let time: Double
+    
     init() {
         net = Yolov5()
-        // Yolo requires the width and height of the image are both multiplier of 32.
-        let rawImage = UIImage(named: "dogs")!
-        var w = rawImage.size.width
-        var h = rawImage.size.height
-        if w < h {
-            w = CGFloat(Int(w / h * 640 / 32) * 32)
-            h = 640
-        } else {
-            h = CGFloat(Int(h / w * 640 / 32) * 32)
-            w = 640
-        }
-        image = rawImage.resize(targetSize:
-                                    CGSize(width: w, height: h))
+        image = UIImage(named: "dogs")!
         if let net = net {
-            results = net.predict(for: image)
+            let tmp = net.predict(for: image)
+            results = tmp.0
+            time = tmp.1
         } else {
             results = []
+            time = -1
         }
     }
 
@@ -41,6 +33,7 @@ struct ContentView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .overlay(Frame(frames: results, image: image))
+                Text("time: \(String(format: "%.2fms", time))")
             } else {
                 Image(uiImage: image)
                     .resizable()
@@ -55,13 +48,26 @@ struct Frame: View {
     let frames: [Object]
     let image: UIImage
 
+    var resize: CGSize {
+        var w: CGFloat = image.size.width
+        var h: CGFloat = image.size.height
+        if w < h {
+            w = CGFloat(Int(w / h * maxLength / 32) * 32)
+            h = maxLength
+        } else {
+            h = CGFloat(Int(h / w * maxLength / 32) * 32)
+            w = maxLength
+        }
+        return CGSize(width: w, height: h)
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 ForEach(0..<frames.count) { i in
                     frame(frame: frames[i],
-                          scaleX: geometry.size.width / image.size.width,
-                          scaleY: geometry.size.height / image.size.height)
+                          scaleX: geometry.size.width / resize.width,
+                          scaleY: geometry.size.height / resize.height)
                 }
             }
         }

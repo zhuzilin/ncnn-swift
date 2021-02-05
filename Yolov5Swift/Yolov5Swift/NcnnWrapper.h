@@ -18,6 +18,8 @@ struct _Mat;
 }
 
 - (instancetype)initFromPixels:(NSData*)data :(int)type :(int)w :(int)h;
+- (instancetype)initFromPixelsResize:(NSData*)data :(int)type :(int)w :(int)h :(int)target_width :(int)target_height;
+- (instancetype)initFromPathResize:(NSString*)path :(int)target_width :(int)target_height;
 - (int)w;
 - (int)h;
 - (int)c;

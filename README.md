@@ -18,8 +18,15 @@ This is a simple image classification with squeezenet from [nihui](https://githu
 
 ## Yolov5Swift
 
-<img src="img/object_detection_preview.png"/>
+<p align="center">
+  <img src="img/object_detection_preview.png"/>
+  <div  align="center">Screenshots an iPhone 8plus.</div>
+</p>
 
-This is a simple object detection example with yolov5 from [nihui](https://github.com/nihui)/[ncnn-android-yolov5](https://github.com/nihui/ncnn-android-yolov5). It provides some ideas on how to register custom layer with Swift.
+This is a simple object detection example with yolov5 from [nihui](https://github.com/nihui)/[ncnn-android-yolov5](https://github.com/nihui/ncnn-android-yolov5). It provides some ideas on how to register custom layer with Swift and how to use [nihui](https://github.com/nihui)/[opencv-mobile](https://github.com/nihui/opencv-mobile) together with ncnn.
+
+Notice that the time shown includes  `cv::imread` (around 40 ms) and the image is resized so that the longer edge is 640.
+
+---
 
 If you have any question on this project, please feel free to file an issue or PR.

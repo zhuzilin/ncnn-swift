@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import <ncnn/ncnn/net.h>
+#import <ncnn/ncnn/cpu.h>
+#include <opencv2/opencv2/highgui.hpp>
 
 #import "NcnnWrapper.h"
 
@@ -35,6 +37,27 @@ struct _Mat {
     unsigned char *bytes = (unsigned char *)[data bytes];
     _mat = new _Mat;
     _mat->_mat = ncnn::Mat::from_pixels(bytes, type, w, h);
+    return self;
+}
+
+- (instancetype)initFromPixelsResize:(NSData*)data :(int)type :(int)w :(int)h :(int)target_width :(int)target_height
+{
+    self = [super init];
+    unsigned char *bytes = (unsigned char *)[data bytes];
+    _mat = new _Mat;
+    _mat->_mat = ncnn::Mat::from_pixels_resize(bytes, type, w, h, target_width, target_height);
+    return self;
+}
+
+- (instancetype)initFromPathResize:(NSString*)path :(int)target_width :(int)target_height
+{
+    std::string path_str = std::string([path UTF8String], [path length]);
+    _mat = new _Mat;
+    NSDate *start = [NSDate date];
+    cv::Mat img = cv::imread(path_str);
+    NSTimeInterval timeInterval = [start timeIntervalSinceNow];
+    NSLog(@"imread time: %.2f", timeInterval * -1000);
+    _mat->_mat = ncnn::Mat::from_pixels_resize(img.data, 1, img.cols, img.rows, target_width, target_height);
     return self;
 }
 
@@ -163,7 +186,6 @@ struct _Net {
 - (NSDictionary<NSNumber *,NcnnMat *> *)runWithName:(NSDictionary<NSNumber *,NcnnMat *> *)inputs :(NSArray<NSNumber *> *)extracts
 {
     ncnn::Extractor ex = _net->_net.create_extractor();
-    ex.set_light_mode(true);
     for (id key in inputs) {
         NcnnMat *input = inputs[key];
         if (ex.input([key UTF8String], input->_mat->_mat) != 0) {
