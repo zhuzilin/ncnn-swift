@@ -1,5 +1,5 @@
 //
-//  NcnnWrapper.m
+//  Wrapper.m
 //  SwiftNCNN
 //
 //  Created by Zilin Zhu on 2021/1/28.
@@ -13,17 +13,14 @@
 #include <vector>
 
 // MARK: Mat
-struct _Mat {
-    ncnn::Mat _mat;
-    
-    _Mat() {}
-};
+@implementation Mat
+{
+    @public ncnn::Mat _mat;
+}
 
-@implementation NcnnMat
 - (instancetype)init
 {
     self = [super init];
-    _mat = new _Mat;
     return self;
 }
 
@@ -31,20 +28,14 @@ struct _Mat {
 {
     self = [super init];
     unsigned char *bytes = (unsigned char *)[data bytes];
-    _mat = new _Mat;
-    _mat->_mat = ncnn::Mat::from_pixels(bytes, type, w, h);
+    _mat = ncnn::Mat::from_pixels(bytes, type, w, h);
     return self;
 }
 
 - (NSData *)toData
 {
-    unsigned long length = _mat->_mat.w * _mat->_mat.h * _mat->_mat.c * _mat->_mat.elemsize;
-    return [NSData dataWithBytes:_mat->_mat.data length:length];
-}
-
-- (void)dealloc
-{
-    delete _mat;
+    unsigned long length = _mat.w * _mat.h * _mat.c * _mat.elemsize;
+    return [NSData dataWithBytes:_mat.data length:length];
 }
 
 - (void)substractMeanNormalize:(NSArray<NSNumber*>*)mean :(NSArray<NSNumber*>*)std
@@ -57,63 +48,56 @@ struct _Mat {
         stdVal.push_back([val floatValue]);
     }
     if (mean && std) {
-        _mat->_mat.substract_mean_normalize(meanVal.data(), stdVal.data());
+        _mat.substract_mean_normalize(meanVal.data(), stdVal.data());
     } else if (mean) {
-        _mat->_mat.substract_mean_normalize(meanVal.data(), 0);
+        _mat.substract_mean_normalize(meanVal.data(), 0);
     } else if (std) {
-        _mat->_mat.substract_mean_normalize(0, stdVal.data());
+        _mat.substract_mean_normalize(0, stdVal.data());
     }
 }
 @end
 
 
 // MARK: Net
-struct _Net {
-    ncnn::Net _net;
-};
-
-@implementation NcnnNet
+@implementation Net
+{
+    @public ncnn::Net _net;
+}
 
 - (instancetype)init
 {
     self = [super init];
-    _net = new _Net;
     return self;
-}
-
-- (void)dealloc
-{
-    delete _net;
 }
 
 - (int)loadParam:(NSString *)paramPath
 {
-    return _net->_net.load_param([paramPath UTF8String]);
+    return _net.load_param([paramPath UTF8String]);
 }
 
 - (int)loadParamBin:(NSString *)paramBinPath
 {
-    return _net->_net.load_param_bin([paramBinPath UTF8String]);
+    return _net.load_param_bin([paramBinPath UTF8String]);
 }
 
 - (int)loadModel:(NSString *)modelPath
 {
-    return _net->_net.load_model([modelPath UTF8String]);
+    return _net.load_model([modelPath UTF8String]);
 }
 
 - (void)clear
 {
-    _net->_net.clear();
+    _net.clear();
 }
 
-- (NSDictionary<NSNumber *,NcnnMat *> *)run:(NSDictionary<NSNumber *,NcnnMat *> *)inputs :(NSArray<NSNumber *> *)extracts
+- (NSDictionary<NSNumber *,Mat *> *)run:(NSDictionary<NSNumber *,Mat *> *)inputs :(NSArray<NSNumber *> *)extracts
 {
-    ncnn::Extractor ex = _net->_net.create_extractor();
+    ncnn::Extractor ex = _net.create_extractor();
     ex.set_light_mode(true);
     for (id key in inputs) {
         int blobIndex = [key intValue];
-        NcnnMat *input = inputs[key];
-        if (ex.input(blobIndex, input->_mat->_mat) != 0) {
+        Mat *input = inputs[key];
+        if (ex.input(blobIndex, input->_mat) != 0) {
             NSLog(@"Failed to set input %d", blobIndex);
             return nil;
         }
@@ -126,8 +110,8 @@ struct _Net {
             NSLog(@"Failed to extract output %d", blobIndex);
             return nil;
         }
-        NcnnMat *outputWrapper = [[NcnnMat alloc] init];
-        outputWrapper->_mat->_mat = output;
+        Mat *outputWrapper = [[Mat alloc] init];
+        outputWrapper->_mat = output;
         [result setObject:outputWrapper forKey:index];
     }
     return result;

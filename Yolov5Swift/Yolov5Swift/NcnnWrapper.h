@@ -1,21 +1,17 @@
 //
-//  NcnnWrapper.h
+//  Wrapper.h
 //  SwiftNCNN
 //
 //  Created by Zilin Zhu on 2021/1/30.
 //
 
-#ifndef NcnnWrapper_h
-#define NcnnWrapper_h
+#ifndef Wrapper_h
+#define Wrapper_h
 
 #import <Foundation/Foundation.h>
 
 // MARK: Mat
-struct _Mat;
-@interface NcnnMat : NSObject
-{
-    @public struct _Mat *_mat;
-}
+@interface Mat : NSObject
 
 - (instancetype)initFromPixels:(NSData*)data :(int)type :(int)w :(int)h;
 - (instancetype)initFromPixelsResize:(NSData*)data :(int)type :(int)w :(int)h :(int)target_width :(int)target_height;
@@ -28,11 +24,8 @@ struct _Mat;
 @end
 
 // MARK: Net
-struct _Net;
-@interface NcnnNet : NSObject
-{
-    @public struct _Net *_net;
-}
+@interface Net : NSObject
+
 - (int)loadParam:(NSString*)paramPath;
 - (int)loadParamBin:(NSString*)paramBinPath;
 - (int)loadModel:(NSString*)modelPath;
@@ -40,10 +33,10 @@ struct _Net;
 
 - (int)registerCustomLayer:(NSString*)type;
 
-- (NSDictionary<NSNumber *, NcnnMat *> *)runWithIndex:(NSDictionary<NSNumber *, NcnnMat *> *)inputs
+- (NSDictionary<NSNumber *, Mat *> *)runWithIndex:(NSDictionary<NSNumber *, Mat *> *)inputs
                                             :(NSArray<NSNumber *> *)extracts;
-- (NSDictionary<NSString *, NcnnMat *> *)runWithName:(NSDictionary<NSString *, NcnnMat *> *)inputs
+- (NSDictionary<NSString *, Mat *> *)runWithName:(NSDictionary<NSString *, Mat *> *)inputs
                                             :(NSArray<NSString *> *)extracts;
 @end
 
-#endif /* NcnnWrapper_h */
+#endif /* Wrapper_h */

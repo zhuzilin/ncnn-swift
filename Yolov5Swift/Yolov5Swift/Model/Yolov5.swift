@@ -31,11 +31,11 @@ struct Object {
 }
 
 class Yolov5 {
-    let net: NcnnNet
+    let net: Net
     
     init?() {
         // MARK: initialize net
-        net = NcnnNet()
+        net = Net()
         net.registerCustomLayer("YoloV5Focus")
         let paramPath = Bundle.main.path(forResource: "yolov5s", ofType: "param")
         guard net.loadParam(paramPath) == 0 else {
@@ -63,7 +63,7 @@ class Yolov5 {
         let start = Date()
 
         let path = Bundle.main.path(forResource: "dogs", ofType: "jpg")!
-        let input: NcnnMat = NcnnMat.init(fromPathResize: path, Int32(targetW), Int32(targetH))
+        let input: Mat = Mat.init(fromPathResize: path, Int32(targetW), Int32(targetH))
         
         let std: [NSNumber] = [NSNumber(value: 1 / 255.0), NSNumber(value: 1 / 255.0), NSNumber(value: 1 / 255.0)]
         input.substractMeanNormalize(nil, std)
@@ -89,7 +89,7 @@ class Yolov5 {
         return (result, start.timeIntervalSinceNow * -1000)
     }
     
-    func generateProposals(stride: Int, input: NcnnMat, feature: NcnnMat) -> [Object] {
+    func generateProposals(stride: Int, input: Mat, feature: Mat) -> [Object] {
         guard let anchors = anchorDict[stride] else {
             return []
         }

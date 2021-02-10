@@ -11,11 +11,7 @@
 #import <Foundation/Foundation.h>
 
 // MARK: Mat
-struct _Mat;
-@interface NcnnMat : NSObject
-{
-    @public struct _Mat *_mat;
-}
+@interface Mat : NSObject
 
 - (instancetype)initFromPixels:(NSData*)data :(int)type :(int)w :(int)h;
 - (NSData*)toData;
@@ -23,18 +19,14 @@ struct _Mat;
 @end
 
 // MARK: Net
-struct _Net;
-@interface NcnnNet : NSObject
-{
-    @public struct _Net *_net;
-}
+@interface Net : NSObject
 - (int)loadParam:(NSString*)paramPath;
 - (int)loadParamBin:(NSString*)paramBinPath;
 - (int)loadModel:(NSString*)modelPath;
 - (void)clear;
 
-- (NSDictionary<NSNumber *, NcnnMat *> *)run:(NSDictionary<NSNumber *, NcnnMat *> *)inputs
-                                            :(NSArray<NSNumber *> *)extracts;
+- (NSDictionary<NSNumber *, Mat *> *)run:(NSDictionary<NSNumber *, Mat *> *)inputs
+                                        :(NSArray<NSNumber *> *)extracts;
 @end
 
 #endif /* NcnnWrapper_h */
